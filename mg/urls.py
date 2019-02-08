@@ -14,10 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from MgForSchool import views as MgS_views
 
 urlpatterns = [
-    path('', MgS_views.index, name='MGindex'),
+    path('accounts/', include('users.urls')),
+    path('', MgS_views.index, name='MgSindex'),
     path('admin/', admin.site.urls),
 ]

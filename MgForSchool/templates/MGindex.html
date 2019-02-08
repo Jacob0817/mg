@@ -2,37 +2,32 @@
 <html>
 <head>
     <!--bootstrap-->
-    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap-theme.css">
-    <script type="text/javascript" src="/static/js/jquery.js"></script>
-    <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="/statics/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/statics/css/bootstrap-theme.css">
+    <script type="text/javascript" src="/statics/js/jquery.js"></script>
+    <script type="text/javascript" src="/statics/js/bootstrap.js"></script>
     <!--vue-->
-    <script type="text/javascript" src="/static/js/vue.js"></script>
+    <script type="text/javascript" src="/statics/js/vue.js"></script>
     <title>test page</title>
 </head>
 <body>
     <nav class="navbar navbar-inverse">
-        <ul class="navbar-header">
+        <div class="navbar-header">
             <a class="navbar-brand" href="#">testpage</a>
-        </ul>
-    </nav>
-    <div class="container container-center jumbotron">
-        <div class="col-sm-4 col-sm-offset-4">
-            <div id="app" class="form-group">
-                <p class="form-control" v-text="aaa"></p>
-                <span>input:</span>
-                <input class="form-control" v-model="aaa">
-            </div>
         </div>
+    </nav>
+    
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            登录
+        </h3>
     </div>
-    <script type="text/javascript">
-        var vm = new Vue({
-            el: '#app',
-            data: {
-                aaa: ' ',
-            }
-        })
-    </script>
+    <div class="panel-body">
+        面板内容
+    </div>
+    </div>
 
 </body>
+
 </html>

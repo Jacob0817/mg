@@ -1,28 +1,36 @@
-{% load i18n staticfiles %}<!DOCTYPE html>
+{% load i18n staticfiles %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>{% block title %}{{ title|default:"django-users2"}}{% endblock %}</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+     <!--bootstrap-->
+    <link rel="stylesheet" type="text/css" href="/statics/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/statics/css/bootstrap-theme.css">
+    <script type="text/javascript" src="/statics/js/jquery.js"></script>
+    <script type="text/javascript" src="/statics/js/bootstrap.js"></script>
+    <!--vue-->
+    <script type="text/javascript" src="/statics/js/vue.js"></script>
 </head>
 <body>
-
-<div class="header navbar">
-	<div class="container">
-		<a class="navbar-brand" href="/">Django Users</a>
-	</div>
-</div>
-<div class="container">
-	{% if messages %}
-		{% for message in messages %}
-			<div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
-		{% endfor %}
-	{% endif %}
-	{% block content %}
-		<p>Use this template get you up and running with django-users2.</p>
-	{% endblock content %}
-</div>
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <div class="container">
+                <a class="navbar-brand" href="#">{% block title %}{{ title|default:"登录"}}{% endblock %}</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% block content %}
+            <p>Use this template get you up and running with django-users2.</p>
+        {% endblock content %}
+    </div>
 </body>
 </html>

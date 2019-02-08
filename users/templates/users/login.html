@@ -2,21 +2,28 @@
 {% load i18n %}
 
 {% block content %}
-<div class="form-wrapper">
-	<form method="post" action=".">
-		{% if form.errors %}
-			{% include "users/partials/errors.html" %}
-		{% endif %}
-		{% csrf_token %}
-		{% for field in form %}
-			{% include "users/partials/field.html" %}
-		{% endfor %}
-		<div class="button-wrapper submit">
-			<input type="submit" value="{% trans 'Log in' %}" />
+<div class="panel panel-default">
+	<div class="panel-heading">
+        <h3 class="panel-title">
+            登录
+        </h3>
+    </div>
+	<div class="panel-body">
+		<div class="form-wrapper">
+			<form method="post" action=".">
+				{% if form.errors %}
+					{% include "users/partials/errors.html" %}
+				{% endif %}
+				{% csrf_token %}
+				{% for field in form %}
+					{% include "users/partials/field.html" %}
+				{% endfor %}
+				<div class="button-wrapper submit col-md-2">
+					<input class="btn btn-primary" type="submit" value="{% trans 'Log in' %}" />
+				</div>
+				<input type="hidden" name="next" value="{{ next }}" />
+			</form>
 		</div>
-		<input type="hidden" name="next" value="{{ next }}" />
-		<p><a href="{% url 'users_password_reset' %}">{% trans "Forgot password" %}</a></p>
-		<p><a href="{% url 'users_register' %}">{% trans "Register" %}</a></p>
-	</form>
+    </div>
 </div>
 {% endblock %}
