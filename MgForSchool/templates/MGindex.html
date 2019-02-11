@@ -2,12 +2,13 @@
 <html>
 <head>
     <!--bootstrap-->
-    <link rel="stylesheet" type="text/css" href="/statics/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/statics/css/bootstrap-theme.css">
-    <script type="text/javascript" src="/statics/js/jquery.js"></script>
-    <script type="text/javascript" src="/statics/js/bootstrap.js"></script>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/bootstrap-theme.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery/jquery.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap/bootstrap.js' %}"></script>
     <!--vue-->
-    <script type="text/javascript" src="/statics/js/vue.js"></script>
+    <script type="text/javascript" src="{% static 'js/vue/vue.js' %}"></script>
     <title>test page</title>
 </head>
 <body>
