@@ -11,5 +11,8 @@
 * vue-router 3.0.2  
 `$ npm install vue-router`
 ### to run this site
+`$ cd /path/to/mg/MgForSchoolV` 
+`$ yarn install` 
+`$ yarn run build` 
 `$ cd /path/to/mg`  
 `$ python manage.py runserver`  
