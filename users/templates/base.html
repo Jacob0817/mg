@@ -15,10 +15,28 @@
     <script type="text/javascript" src="{% static 'js/vue/vue.js' %}"></script>
 </head>
 <body>
-    <nav class="navbar navbar-inverse">
-        <div class="navbar-header">
-            <div class="container">
-                <a class="navbar-brand" href="#">{% block title %}{{ title|default:"登录"}}{% endblock %}</a>
+    <header>
+        <div>
+            <h1 class="logo col-md-12 col-sm-12">
+                <a href="/"></a>
+                    <img id="logo" src="{% static 'img/logo-100x100.png' %}">
+                </a>
+            </h1>
+        </div>
+    </header>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div>
+                <ul class="nav navbar-nav">
+                        <li><a class="navbar-brand" href="#">主页</a></li>
+                        <li><a class="navbar-brand" href="#">教程</a></li>
+                </ul>
+            </div>
+            <div class="hidden-xs">
+                <ul class="nav navbar-nav navbar-right"> 
+                    <li><a href="#">注册</a></li> 
+                    <li class="active"><a href="/accounts/login/"> 登录</a></li> 
+                </ul> 
             </div>
         </div>
     </nav>

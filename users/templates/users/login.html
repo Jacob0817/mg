@@ -18,7 +18,7 @@
 				{% for field in form %}
 					{% include "users/partials/field.html" %}
 				{% endfor %}
-				<div class="button-wrapper submit col-md-2">
+				<div class="button-wrapper submit col-md-2 col-sm-2">
 					<input class="btn btn-primary" type="submit" value="{% trans 'Log in' %}" />
 				</div>
 				<input type="hidden" name="next" value="{{ next }}" />
