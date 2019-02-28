@@ -22,7 +22,7 @@ from django.views.generic.base import TemplateView
 from django.conf.urls.static import static
 urlpatterns = [
     path('accounts/', include('users.urls')),
-    path('orgi/', MgS_views.index, name='MgSindex'),
-    path('', TemplateView.as_view(template_name='index.html')),
+    path('', MgS_views.index, name='MgSindex'),
+    path('mg/', TemplateView.as_view(template_name='index.html')),
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

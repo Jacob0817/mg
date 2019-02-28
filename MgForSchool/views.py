@@ -4,4 +4,4 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'MGindex.html')
+    return render(request, 'MgForSchoolTemp/home_page.html')

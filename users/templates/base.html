@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-     <!--bootstrap-->
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon" />
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <!--bootstrap-->
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/bootstrap.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/bootstrap-theme.css' %}">
     <script type="text/javascript" src="{% static 'js/jquery/jquery.js'%}"></script>
@@ -18,26 +20,28 @@
     <header>
         <div>
             <h1 class="logo col-md-12 col-sm-12">
-                <a href="/"></a>
-                    <img id="logo" src="{% static 'img/logo-100x100.png' %}">
+                <a href="/">
+                    <img id="logo" src="{% static 'img/logo-265x100.png' %}">
                 </a>
             </h1>
         </div>
     </header>
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container">
+            {% block navbar %}
             <div>
                 <ul class="nav navbar-nav">
-                        <li><a class="navbar-brand" href="#">主页</a></li>
-                        <li><a class="navbar-brand" href="#">教程</a></li>
+                        <li><a href="/"><i class="fa fa-home"></i>&nbsp主页</a></li>
+                        <li><a href="/mg/"><i class="fa fa-book"></i>&nbsp教程</a></li>
                 </ul>
             </div>
             <div class="hidden-xs">
                 <ul class="nav navbar-nav navbar-right"> 
-                    <li><a href="#">注册</a></li> 
-                    <li class="active"><a href="/accounts/login/"> 登录</a></li> 
+                    <li><a href="/accounts/register/"><i class="fa fa-user-circle"></i>&nbsp注册</a></li> 
+                    <li><a href="/accounts/login/"><i class="fa fa-sign-in"></i>&nbsp登录</a></li> 
                 </ul> 
             </div>
+            {% endblock navbar %}
         </div>
     </nav>
     <div class="container">
@@ -46,9 +50,22 @@
                 <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
             {% endfor %}
         {% endif %}
-        {% block content %}
-            <p>Use this template get you up and running with django-users2.</p>
-        {% endblock content %}
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        {% block title %}
+                        <i class="fa fa-exclamation-triangle"></i>
+                        {% endblock title %}
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    {% block content %}
+
+                    {% endblock content %}
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

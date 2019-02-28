@@ -46,7 +46,7 @@ INSTALLED_APPS = [
 ]
 
 AUTH_USER_MODEL = 'users.User'
-
+LOGIN_REDIRECT_URL ='/' 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -62,7 +62,8 @@ ROOT_URLCONF = 'mg.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'MgForSchoolV/dist')],
+        'DIRS': [os.path.join(BASE_DIR, 'MgForSchoolV/dist'),
+                       os.path.join(BASE_DIR, 'MgForSchool/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
