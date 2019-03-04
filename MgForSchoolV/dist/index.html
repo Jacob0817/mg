@@ -10,18 +10,22 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon" />
-        <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
-         <!--bootstrap-->
-        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/bootstrap.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/bootstrap-theme.css' %}">
+        <!--font-awesome-->
+        <link rel="stylesheet" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+        <!--jquery-->
         <script type="text/javascript" src="{% static 'js/jquery/jquery.js'%}"></script>
+        <!--bootstrap-->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/css/bootstrap.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/css/bootstrap-theme.css' %}">
         <script type="text/javascript" src="{% static 'js/bootstrap/bootstrap.js' %}"></script>
         <!--vue-->
         <script type="text/javascript" src="{% static 'js/vue/vue.js' %}"></script>
+        <!--CubeNode-style-->
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
     </head>
     <body>
         <header>
-            <div>
+            <div class="container">
                 <h1 class="logo col-md-12 col-sm-12">
                     <a href="/">
                         <img id="logo" src="{% static 'img/logo-265x100.png' %}">

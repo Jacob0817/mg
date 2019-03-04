@@ -9,9 +9,6 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
-.logo {
-  float: none !important;
-}
 body {
   margin: 0;
 }
@@ -67,7 +64,7 @@ dfn {
   font-style: italic;
 }
 h1 {
-  font-size: 36px;
+  font-size: 2em;
   margin: 0.67em 0;
 }
 mark {
@@ -1413,7 +1410,7 @@ a.bg-danger:focus {
 .page-header {
   padding-bottom: 9px;
   margin: 40px 0 20px;
-  /*border-bottom: 1px solid #eeeeee;*/
+  border-bottom: 1px solid #eeeeee;
 }
 ul,
 ol {

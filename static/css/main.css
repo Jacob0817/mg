@@ -1,0 +1,81 @@
+.navbar {
+  margin-bottom: 0;
+}
+p {
+  margin: 10px 0 10px !important;
+}
+/*-----------------------------------------------------------------------*/
+.fo,
+.fo:link,
+.fo:visited,
+.fo:hover,
+.fo:active {
+  text-decoration: none;
+  color: inherit;
+}
+/*段落文字左右对齐*/
+p.fo-justify {
+  text-align: justify;
+}
+span.fo-justify {
+  display:inline-block;
+  padding-left: 100%
+}
+/*文字缩放*/
+.fo-2x {
+  font-size: 2em;
+}
+.fo-3x {
+  font-size: 3em;
+}
+.fo-4x {
+  font-size: 4em;
+}
+/*首字下沉*/
+.fo-dropdown {
+  float: left !important;
+  margin-right: .3em;
+}
+.fo-border {
+  padding: .1em .2em .1em;
+  border: solid .08em #eee;
+  border-radius: .1em;
+}
+/*首页介绍*/
+section.home-info {
+  color: #777;
+  padding: 65px 0;
+  background-color: #f5faff;
+}
+section.home-info-odd {
+  padding: 0;
+  background-color: #FFFFFF;
+}
+section.home-info-even {
+  padding: 0;
+  background-color: #f5faff;
+}
+.info-row {
+  min-height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.info-left {
+  padding: 15px 25px 15px;
+}
+.info-right {
+  padding: 15px 25px 15px;
+}
+.align-v {
+  position: absolute;
+  vertical-align: middle;
+}
+.align-h {
+  text-align: center;
+}
+section.home-info h2 {
+  margin-bottom: 15px;
+  color: #131313;
+}
