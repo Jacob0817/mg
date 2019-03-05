@@ -45,22 +45,20 @@ span.fo-justify {
 section.home-info {
   color: #777;
   padding: 65px 0;
-  background-color: #f5faff;
+  background-color: #e6e6e6;
 }
 section.home-info-odd {
-  padding: 0;
+  padding: 55px 0;
   background-color: #FFFFFF;
 }
 section.home-info-even {
-  padding: 0;
-  background-color: #f5faff;
+  padding:55px 0;
+  background-color: #e6e6e6;
 }
 .info-row {
   min-height: 200px;
   display: flex;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
 }
 .info-left {
   padding: 15px 25px 15px;
@@ -70,10 +68,19 @@ section.home-info-even {
 }
 .align-v {
   position: absolute;
-  vertical-align: middle;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 .align-h {
-  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.align-mid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 section.home-info h2 {
   margin-bottom: 15px;
