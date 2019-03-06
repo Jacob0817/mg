@@ -60,12 +60,23 @@ section.home-info-even {
   display: flex;
   flex-wrap: wrap;
 }
-.info-left {
-  padding: 15px 25px 15px;
+@media (min-width:767px){
+  .info-left {
+    padding: 15px 40px 15px 15px;
+  }
+  .info-right {
+    padding: 15px 15px 15px 40px;
+  }
 }
-.info-right {
-  padding: 15px 25px 15px;
+@media (max-width: 767px) {
+  .info-left {
+    padding: 15px 25px 15px 25px;
+  }
+  .info-right {
+    padding: 15px 25px 15px 25px;
+  }
 }
+
 .align-v {
   position: absolute;
   top: 50%;
@@ -88,7 +99,7 @@ section.home-info h2 {
 }
 /*滑动淡入*/
 .fadeIn-down {
-  animation: fadeIn-down 1s ease;
+  animation: fadeIn-down 1.5s ease;
 }
 @keyframes fadeIn-down{
   from { 
@@ -101,7 +112,7 @@ section.home-info h2 {
   }
 }
 .fadeIn-up {
-  animation: fadeIn-up 1s ease;
+  animation: fadeIn-up 1.5s ease;
 }
 @keyframes fadeIn-up{
   from { 
