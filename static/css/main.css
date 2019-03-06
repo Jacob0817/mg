@@ -86,3 +86,30 @@ section.home-info h2 {
   margin-bottom: 15px;
   color: #131313;
 }
+/*滑动淡入*/
+.fadeIn-down {
+  animation: fadeIn-down 1s ease;
+}
+@keyframes fadeIn-down{
+  from { 
+    transform: translateY(-50px);
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0px);
+    opacity: 1; 
+  }
+}
+.fadeIn-up {
+  animation: fadeIn-up 1s ease;
+}
+@keyframes fadeIn-up{
+  from { 
+    transform: translateY(50px);
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0px);
+    opacity: 1; 
+  }
+}
