@@ -98,29 +98,31 @@ section.home-info h2 {
   color: #131313;
 }
 /*滑动淡入*/
-.fadeIn-down {
-  animation: fadeIn-down 1.5s ease;
-}
-@keyframes fadeIn-down{
-  from { 
-    transform: translateY(-50px);
-    opacity: 0; 
+@media (min-width: 767px) {
+  .fadeIn-down {
+    animation: fadeIn-down 1.5s ease;
   }
-  to { 
-    transform: translateY(0px);
-    opacity: 1; 
+  @keyframes fadeIn-down{
+    from { 
+      transform: translateY(-50px);
+      opacity: 0; 
+    }
+    to { 
+      transform: translateY(0px);
+      opacity: 1; 
+    }
   }
-}
-.fadeIn-up {
-  animation: fadeIn-up 1.5s ease;
-}
-@keyframes fadeIn-up{
-  from { 
-    transform: translateY(50px);
-    opacity: 0; 
+  .fadeIn-up {
+    animation: fadeIn-up 1.5s ease;
   }
-  to { 
-    transform: translateY(0px);
-    opacity: 1; 
+  @keyframes fadeIn-up{
+    from { 
+      transform: translateY(50px);
+      opacity: 0; 
+    }
+    to { 
+      transform: translateY(0px);
+      opacity: 1; 
+    }
   }
 }
