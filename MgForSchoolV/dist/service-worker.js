@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/static/precache-manifest.5ce2bc963da8717e8369534481d051f1.js"
+  "/static/precache-manifest.b5c4a604248f2fb7d70b0d36304d02ca.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "mgcube-for-org"});
