@@ -1,22 +1,10 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% block navbar %}
-<div>
-	<ul class="nav navbar-nav">
-			<li><a href="/"><i class="fa fa-home"></i>&nbsp主页</a></li>
-			<li><a href="/mg/"><i class="fa fa-book"></i>&nbsp教程</a></li>
-	</ul>
-</div>
-<div class="hidden-xs">
-	<ul class="nav navbar-nav navbar-right"> 
-		<li class="active"><a href="/accounts/register/"><i class="fa fa-user-circle"></i>&nbsp注册</a></li> 
-		<li><a href="/accounts/login/"><i class="fa fa-sign-in"></i>&nbsp登录</a></li> 
-	</ul> 
-</div>
-{% endblock %}
+
 {% block title %}
 注册
 {% endblock %}
+
 {% block content %}
 	    <div class="form-wrapper">
 			<form method="post" action=".">

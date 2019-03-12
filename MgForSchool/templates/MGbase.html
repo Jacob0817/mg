@@ -32,9 +32,33 @@
     </header>
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container">
-            {% block navbar %}
-            
-            {% endblock navbar %}
+            {% if request.user.is_authenticated %}
+            <div>
+	            <ul class="nav navbar-nav">
+			        <li {% if request.path == "/" %}class="active"{% endif %}><a href="/"><i class="fa fa-home"></i>&nbsp主页</a></li>
+			        <li><a href="/mg/"><i class="fa fa-book"></i>&nbsp教程</a></li>
+	            </ul>
+            </div>
+            <div class="hidden-xs">
+	            <ul class="nav navbar-nav navbar-right"> 
+		            <li><a href="#">{{request.user}}</a></li> 
+		            <li><a href="/accounts/logout/"><i class="fa fa-sign-out"></i>&nbsp登出</a></li> 
+	            </ul> 
+            </div>
+            {% else %}
+            <div>
+	            <ul class="nav navbar-nav">
+			        <li {% if request.path == "/" %}class="active"{% endif %}><a href="/"><i class="fa fa-home"></i>&nbsp主页</a></li>
+			        <li><a href="/mg/"><i class="fa fa-book"></i>&nbsp教程</a></li>
+	            </ul>
+            </div>
+            <div class="hidden-xs">
+	            <ul class="nav navbar-nav navbar-right"> 
+		            <li><a href="/accounts/register/"><i class="fa fa-user-circle"></i>&nbsp注册</a></li> 
+		            <li><a href="/accounts/login/"><i class="fa fa-sign-in"></i>&nbsp登录</a></li> 
+	            </ul> 
+            </div>
+            {% endif %}
         </div>
     </nav>
     {% block content %}

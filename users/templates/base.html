@@ -32,20 +32,18 @@
     </header>
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container">
-            {% block navbar %}
             <div>
                 <ul class="nav navbar-nav">
-                        <li><a href="/"><i class="fa fa-home"></i>&nbsp主页</a></li>
+                        <li {% if request.path == "/" %}class="active"{% endif %}><a href="/"><i class="fa fa-home"></i>&nbsp主页</a></li>
                         <li><a href="/mg/"><i class="fa fa-book"></i>&nbsp教程</a></li>
                 </ul>
             </div>
             <div class="hidden-xs">
                 <ul class="nav navbar-nav navbar-right"> 
-                    <li><a href="/accounts/register/"><i class="fa fa-user-circle"></i>&nbsp注册</a></li> 
-                    <li><a href="/accounts/login/"><i class="fa fa-sign-in"></i>&nbsp登录</a></li> 
+                    <li  {% if request.path == "/accounts/register/" %} class="active" {% endif %}><a href="/accounts/register/"><i class="fa fa-user-circle"></i>&nbsp注册</a></li> 
+                    <li  {% if request.path == "/accounts/login/" %} class="active" {% endif %}><a href="/accounts/login/"><i class="fa fa-sign-in"></i>&nbsp登录</a></li> 
                 </ul> 
             </div>
-            {% endblock navbar %}
         </div>
     </nav>
     <div class="container">
@@ -54,7 +52,7 @@
                 <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
             {% endfor %}
         {% endif %}
-        <div class="container">
+        <div class="container container-msg">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">
