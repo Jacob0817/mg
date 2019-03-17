@@ -24,43 +24,52 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
-<header>
-    <div class="container">
-        <h1 class="logo col-md-12 col-sm-12">
-            <a href="/">
-                <img id="logo" src="{% static 'img/logo-265x100.png' %}">
-            </a>
-        </h1>
+    <div class="main-container">
+        <header>
+            <div class="container">
+                <h1 class="logo col-md-12 col-sm-12">
+                    <a href="/">
+                        <img id="logo" src="{% static 'img/logo-265x100.png' %}">
+                    </a>
+                </h1>
+            </div>
+        </header>
+        <nav class="navbar navbar-inverse" role="navigation">
+            <div class="container">
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="/"><i class="fa fa-home"></i>&nbsp主页</a></li>
+                        <li class="active"><a href="/mg/"><i class="fa fa-book"></i>&nbsp教程</a></li>
+                    </ul>
+                </div>
+                <div class="hidden-xs">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/accounts/register/"><i class="fa fa-user-circle"></i>&nbsp注册</a></li>
+                        <li><a href="/accounts/login/"><i class="fa fa-sign-in"></i>&nbsp登录</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container container-msg">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <i class="fa fa-exclamation-triangle"></i>&nbsp注意
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <p>访问节点魔方教学课程请先登录</p>
+                </div>
+            </div>
+        </div>
     </div>
-</header>
-<nav class="navbar navbar-inverse" role="navigation">
-    <div class="container">
-        <div>
-            <ul class="nav navbar-nav">
-                <li><a href="/"><i class="fa fa-home"></i>&nbsp主页</a></li>
-                <li class="active"><a href="/mg/"><i class="fa fa-book"></i>&nbsp教程</a></li>
-            </ul>
-        </div>
-        <div class="hidden-xs">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/accounts/register/"><i class="fa fa-user-circle"></i>&nbsp注册</a></li>
-                <li><a href="/accounts/login/"><i class="fa fa-sign-in"></i>&nbsp登录</a></li>
-            </ul>
+    <div class="footer">
+        <div class="container">
+            <div class="copyright">
+                Copyright © {% now "Y" %} CubeNode<br>京ICP备---号
+            </div>
         </div>
     </div>
-</nav>
-<div class="container container-msg">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">
-                <i class="fa fa-exclamation-triangle"></i>&nbsp注意
-            </h3>
-        </div>
-        <div class="panel-body">
-            <p>访问节点魔方教学课程请先登录</p>
-        </div>
-    </div>
-</div>
 </body>
 </html>
 {% endif %}
