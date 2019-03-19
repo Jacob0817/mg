@@ -18,6 +18,9 @@ body {
   min-height: 100%;
   margin-bottom: -50px;
 }
+.container-msg {
+  margin-top: 20px;
+}
 .footer {
   height: auto;
   text-align: center;
@@ -152,6 +155,3 @@ section.home-info h2 {
   }
 }
 /*------------------------------------------------*/
-.container-msg {
-  margin-top: 20px;
-}

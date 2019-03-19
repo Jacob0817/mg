@@ -2,51 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon" />
-    <!--font-awesome-->
-    <link rel="stylesheet" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
-    <!--jquery-->
-    <script type="text/javascript" src="{% static 'js/jquery/jquery.js'%}"></script>
-    <!--bootstrap-->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/css/bootstrap.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/css/bootstrap-theme.css' %}">
-    <script type="text/javascript" src="{% static 'js/bootstrap/bootstrap.js' %}"></script>
-    <!--vue-->
-    <script type="text/javascript" src="{% static 'js/vue/vue.js' %}"></script>
-    <!--CubeNode-style-->
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    {% include 'head_temp.html' %}
 </head>
 <body>
     <div class="main-container">
-        <header>
-            <div class="container">
-                <h1 class="logo col-md-12 col-sm-12">
-                    <a href="/">
-                        <img id="logo" src="{% static 'img/logo-265x100.png' %}">
-                    </a>
-                </h1>
-            </div>
-        </header>
-        <nav class="navbar navbar-inverse" role="navigation">
-            <div class="container">
-                <div>
-                    <ul class="nav navbar-nav">
-                        <li {% if request.path == "/" %}class="active"{% endif %}><a href="/"><i class="fa fa-home"></i>&nbsp主页</a></li>
-                        <li><a href="/mg/"><i class="fa fa-book"></i>&nbsp教程</a></li>
-                    </ul>
-                </div>
-                <div class="hidden-xs">
-                    <ul class="nav navbar-nav navbar-right"> 
-                        <li  {% if request.path == "/accounts/register/" %} class="active" {% endif %}><a href="/accounts/register/"><i class="fa fa-user-circle"></i>&nbsp注册</a></li> 
-                        <li  {% if request.path == "/accounts/login/" %} class="active" {% endif %}><a href="/accounts/login/"><i class="fa fa-sign-in"></i>&nbsp登录</a></li> 
-                    </ul> 
-                </div>
-            </div>
-        </nav>
+        {% include 'nav_temp.html' %}
         <div class="container">
             {% if messages %}
                 {% for message in messages %}
@@ -71,12 +31,6 @@
             </div>
         </div>
     </div>
-    <div class="footer">
-        <div class="container">
-            <div class="copyright">
-                    Copyright © {% now "Y" %} CubeNode<br>京ICP备---号
-            </div>
-        </div>
-    </div>
+    {% include 'foot_temp.html' %}
 </body>
 </html>
