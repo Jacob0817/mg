@@ -5,5 +5,23 @@
 <i class="fa fa-exclamation-triangle"></i>
 {% endblock %}
 {% block content %}
-<p>退出登录成功</p>
+<p>退出登录成功，<a id="time">3</a>秒后自动跳转至主页</p>
+<script>
+    var timer = 0,
+    countDown = 3;
+function count() {
+    countDown--;
+    $('#time').text(countDown);
+    if (countDown <= 0) {
+        clearInterval(timer);
+        $('#time').text('0');
+        location = '/';
+        return false;
+    }
+}
+
+$(document).ready(function () {
+    timer = setInterval('count()', 1000);
+});
+</script>
 {% endblock %}

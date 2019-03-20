@@ -20,6 +20,25 @@
                 </div>
                 <div class="panel-body">
                     <p>访问节点魔方教学课程请先登录</p>
+                    <p><a id="time">3</a>秒后自动跳转至登录页面</p>
+                    <script>
+                        var timer = 0,
+                        countDown = 3;
+                        function count() {
+                            countDown--;
+                            $('#time').text(countDown);
+                            if (countDown <= 0) {
+                                clearInterval(timer);
+                                $('#time').text('0');
+                                location = '/accounts/login/';
+                                return false;
+                            }
+                        }
+
+                        $(document).ready(function () {
+                            timer = setInterval('count()', 1000);
+                        });
+                    </script>
                 </div>
             </div>
         </div>
