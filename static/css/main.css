@@ -1,8 +1,34 @@
+/*隐藏滚轮*/
+::-webkit-scrollbar {
+  display: none;
+}
 .navbar {
   margin-bottom: 0;
 }
 p {
   margin: 10px 0 10px !important;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+}
+.main-container {
+  min-height: 100%;
+  margin-bottom: -50px;
+}
+.container-msg {
+  margin-top: 20px;
+}
+.footer {
+  height: auto;
+  text-align: center;
+  background-color: #131313;
+  color: rgb(221, 221, 221);
+}
+.copyright {
+  padding: 5px 0;
 }
 /*-----------------------------------------------------------------------*/
 .fo,
@@ -43,8 +69,8 @@ span.fo-justify {
 }
 /*首页介绍*/
 section.home-info {
+  padding:65px 0;
   color: #777;
-  padding: 65px 0;
   background-color: #e6e6e6;
 }
 section.home-info-odd {
@@ -55,8 +81,10 @@ section.home-info-even {
   padding:55px 0;
   background-color: #e6e6e6;
 }
+section.home-info-last {
+  margin-bottom: 50px;
+}
 .info-row {
-  min-height: 200px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -126,3 +154,4 @@ section.home-info h2 {
     }
   }
 }
+/*------------------------------------------------*/

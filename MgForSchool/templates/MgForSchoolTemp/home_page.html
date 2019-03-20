@@ -1,35 +1,6 @@
 {% extends "MGbase.html" %}
 {% load i18n %}
 {% load i18n staticfiles %}
-{% block navbar %}
-{% if request.user.is_authenticated %}
-<div>
-	<ul class="nav navbar-nav">
-			<li class="active"><a href="/"><i class="fa fa-home"></i>&nbsp主页</a></li>
-			<li><a href="/mg/"><i class="fa fa-book"></i>&nbsp教程</a></li>
-	</ul>
-</div>
-<div class="hidden-xs">
-	<ul class="nav navbar-nav navbar-right"> 
-		<li><a href="#">{{request.user}}</a></li> 
-		<li><a href="/accounts/logout/"><i class="fa fa-sign-out"></i>&nbsp登出</a></li> 
-	</ul> 
-</div>
-{% else %}
-<div>
-	<ul class="nav navbar-nav">
-			<li class="active"><a href="/"><i class="fa fa-home"></i>&nbsp主页</a></li>
-			<li><a href="/mg/"><i class="fa fa-book"></i>&nbsp教程</a></li>
-	</ul>
-</div>
-<div class="hidden-xs">
-	<ul class="nav navbar-nav navbar-right"> 
-		<li><a href="/accounts/register/"><i class="fa fa-user-circle"></i>&nbsp注册</a></li> 
-		<li><a href="/accounts/login/"><i class="fa fa-sign-in"></i>&nbsp登录</a></li> 
-	</ul> 
-</div>
-{% endif %}
-{% endblock %}
 
 {% block content %}
 <section class="home-info">
@@ -56,7 +27,7 @@
 		</div>
 	</div>
 </section>
-<section class="home-info-odd">
+<section class="home-info-odd home-info-last">
 	<div class="container">
 		<div class="info-row">
 			<div class="info-left fadeIn-up col-md-6 col-sm-6 hidden-xs">
@@ -82,6 +53,4 @@
 		</div>
 	</div>
 </section>
-
-
 {% endblock %}
