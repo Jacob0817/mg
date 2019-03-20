@@ -25,4 +25,5 @@ urlpatterns = [
     path('', MgS_views.index, name='MgSindex'),
     path('mg/', TemplateView.as_view(template_name='index.html')),
     path('admin/', admin.site.urls),
+    path(r'static/',MgS_views.index, name='MgSindex'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
