@@ -1,2 +1,2 @@
-nohup uwsgi --ini morefun.ini &>morefun.log &
+nohup uwsgi --ini cubenode.ini
 echo "Start Success !!!"
