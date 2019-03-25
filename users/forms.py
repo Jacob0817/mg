@@ -13,12 +13,9 @@ class UserCreationForm(forms.ModelForm):
         'duplicate_email': _('A user with that email already exists.'),
         'password_mismatch': _('The two password fields didn\'t match.'),
     }
-
-    email = UsersEmailField(label=_('Email Address'), max_length=255)
-    password1 = PasswordField(label=_('Password'))
-    password2 = PasswordField(
-        label=_('Password Confirmation'),
-        help_text=_('Enter the same password as above, for verification.'))
+    email = UsersEmailField(label=_('电子邮件地址'), max_length=255)
+    password1 = PasswordField(label=_('密码'))
+    password2 = PasswordField(label=_('确认密码'))
 
     class Meta:
         model = get_user_model()
