@@ -2,10 +2,10 @@ from django.conf.urls import url
 from django.contrib.auth import views as auth_views
 
 from .views import (activate, activation_complete, register,
-                    registration_closed, registration_complete)
+                    registration_closed, registration_complete, testrun)
 
 urlpatterns = [
-    url(r'^register/$', register, name='users_register'),
+    url(r'^register/$', testrun, name='users_register'),
     url(r'^register/closed/$', registration_closed,
         name='users_registration_closed'),
     url(r'^register/complete/$', registration_complete,

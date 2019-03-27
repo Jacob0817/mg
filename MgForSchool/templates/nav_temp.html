@@ -32,8 +32,8 @@
         </div>
         <div class="hidden-xs">
             <ul class="nav navbar-nav navbar-right"> 
-                <li><a href="/accounts/register/"><i class="fa fa-user-circle"></i>&nbsp注册</a></li> 
-                <li><a href="/accounts/login/"><i class="fa fa-sign-in"></i>&nbsp登录</a></li> 
+                <li {% if request.path == "/accounts/register/" %}class="active"{% endif %}><a href="/accounts/register/"><i class="fa fa-user-circle"></i>&nbsp注册</a></li> 
+                <li {% if request.path == "/accounts/login/" %}class="active"{% endif %}><a href="/accounts/login/"><i class="fa fa-sign-in"></i>&nbsp登录</a></li> 
             </ul> 
         </div>
         {% endif %}

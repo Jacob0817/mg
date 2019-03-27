@@ -98,6 +98,18 @@ def registration_closed(request,
     return TemplateResponse(request, template_name, context)
 
 
+def testrun(request,
+                        template_name='users/testrun.html',
+                        current_app=None,
+                        extra_context=None):
+    context = {
+        'title': _('Registration closed'),
+    }
+    if extra_context is not None:  # pragma: no cover
+        context.update(extra_context)
+    return TemplateResponse(request, template_name, context)
+
+
 def registration_complete(request,
                           template_name='users/registration_complete.html',
                           current_app=None,
