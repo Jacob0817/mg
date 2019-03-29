@@ -14,9 +14,9 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (
-    #os.path.join(BASE_DIR, 'static'),# note this while in production env
+    os.path.join(BASE_DIR, 'static'),# note this while in production env
     os.path.join(BASE_DIR, "MgForSchoolV/dist/"),
 )
 
@@ -29,7 +29,7 @@ SECRET_KEY = 'hrw&l=qzfij*p)kov9!zsgq*d2ifk16#rgfb(r=%ot^w4w=4ka'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['47.98.47.96','www.cubenode.cn','cubenode.cn',]
+ALLOWED_HOSTS = ['47.98.47.96','www.cubenode.cn','cubenode.cn', '127.0.0.1',]
 
 
 # Application definition

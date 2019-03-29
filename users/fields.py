@@ -77,6 +77,8 @@ class ComplexityValidator(object):
 
 
 complexity_validator = ComplexityValidator()
+class UserNameField(forms.CharField):
+    default_validators = [length_validator,]
 
 
 class PasswordField(forms.CharField):

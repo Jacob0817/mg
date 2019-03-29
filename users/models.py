@@ -11,7 +11,7 @@ from .managers import UserInheritanceManager, UserManager
 
 class AbstractUser(AbstractBaseUser, PermissionsMixin):
     USERS_AUTO_ACTIVATE = not settings.USERS_VERIFY_EMAIL
-
+    name = models.CharField(max_length=20, unique=True)
     email = models.EmailField(
         _('email address'), max_length=255, unique=True, db_index=True)
     is_staff = models.BooleanField(
@@ -29,7 +29,7 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
     base_objects = UserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['name',]
 
     class Meta:
         verbose_name = _('User')
@@ -37,12 +37,12 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
         abstract = True
 
     def get_full_name(self):
-        """ Return the email."""
-        return self.email
+        """ Return the name."""
+        return self.name
 
     def get_short_name(self):
-        """ Return the email."""
-        return self.email
+        """ Return the name."""
+        return self.name
 
     def email_user(self, subject, message, from_email=None):
         """ Send an email to this User."""
@@ -64,7 +64,6 @@ class User(AbstractUser):
     Concrete class of AbstractUser.
     Use this if you don't need to extend User.
     """
-    name = models.CharField(max_length=20, default='user_name')
 
     class Meta(AbstractUser.Meta):
         swappable = 'AUTH_USER_MODEL'
