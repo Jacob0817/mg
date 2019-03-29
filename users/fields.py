@@ -77,7 +77,10 @@ class ComplexityValidator(object):
 
 
 complexity_validator = ComplexityValidator()
+
+
 class UserNameField(forms.CharField):
+    widget = forms.TextInput()
     default_validators = [length_validator,]
 
 

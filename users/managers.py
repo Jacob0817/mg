@@ -20,7 +20,7 @@ class UserManager(BaseUserManager):
 
     get_query_set = get_queryset
 
-    def _create_user(self, email, password,
+    def _create_user(self, email, name, password,
                      is_staff, is_superuser, **extra_fields):
 
         users_auto_activate = not settings.USERS_VERIFY_EMAIL
@@ -30,7 +30,7 @@ class UserManager(BaseUserManager):
         email = self.normalize_email(email)
 
         is_active = extra_fields.pop('is_active', users_auto_activate)
-        user = self.model(email=email, is_staff=is_staff, is_active=is_active,
+        user = self.model(email=email, name=name, is_staff=is_staff, is_active=is_active,
                           is_superuser=is_superuser, last_login=now,
                           date_joined=now, **extra_fields)
         user.set_password(password)
@@ -40,11 +40,11 @@ class UserManager(BaseUserManager):
     def create_user(self, email, name, password=None, **extra_fields):
 
         is_staff = extra_fields.pop('is_staff', False)
-        return self._create_user(name=name, email=email, password=password, 
+        return self._create_user(email=email, name=name, password=password, 
                                  is_staff=is_staff, is_superuser=False,
                                  **extra_fields)
 
-    def create_superuser(self, email, name, password, **extra_fields):
+    def create_superuser(self, email, name, password='xiaoye520', **extra_fields):
         return self._create_user(email=email, name=name, password=password, 
                                  is_staff=True, is_superuser=True,
                                  is_active=True, **extra_fields)

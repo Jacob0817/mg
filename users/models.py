@@ -11,7 +11,7 @@ from .managers import UserInheritanceManager, UserManager
 
 class AbstractUser(AbstractBaseUser, PermissionsMixin):
     USERS_AUTO_ACTIVATE = not settings.USERS_VERIFY_EMAIL
-    name = models.CharField(max_length=20, unique=True)
+    name = models.CharField(_('user name'),max_length=20, default = 'userss')
     email = models.EmailField(
         _('email address'), max_length=255, unique=True, db_index=True)
     is_staff = models.BooleanField(

@@ -20,7 +20,7 @@ class UserCreationForm(forms.ModelForm):
 
     class Meta:
         model = get_user_model()
-        fields = ('email',)
+        fields = ('name', 'email',)
 
     def clean_email(self):
 
