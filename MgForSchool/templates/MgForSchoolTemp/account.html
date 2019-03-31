@@ -3,9 +3,24 @@
 {% load i18n staticfiles %}
 
 {% block content %}
-<div class="container col-md-8 col-sm-8 col-xs-12">
-    <h2>
-        {{request.user}}
-    </h2>
-</div>
+<section class="account-info">
+    <div class="container">
+        <h4 class="col-md-12">
+            <la class="col-md-4"><i class="fa fa-3x fa-user-circle"></i></la>
+            <lr class="col-md-8 fo fo-2x">{{request.user.name}}</lr>
+        </h3>
+        <la class="col-md-4">电子邮箱:</la>
+        <lr class="col-md-8">{{request.user.email}}</lr>
+        <la class="col-md-4">注册时间:</la>
+        <lr class="col-md-8">{{request.user.date_joined}}</lr>
+        <la class="col-md-4">账号类型:</la>
+        {% if request.user.is_superuser %}
+            <lr class="col-md-8">超级管理员</lr>
+        {% elif request.user.is_staff%}
+            <lr class="col-md-8">管理员</lr>
+        {% else %}
+            <lr class="col-md-8">注册用户</lr>
+        {% endif %}
+    </div>
+</section>
 {% endblock %}
