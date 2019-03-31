@@ -1,16 +1,16 @@
 from django.conf.urls import url
 from django.contrib.auth import views as auth_views
 from django.urls import path
-from django.views.generic.base import TemplateView
+from MgForSchoolV import views as MgSV_views
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name='index.html')),
-    url(r'^class1$', TemplateView.as_view(template_name='index.html')),
-    url(r'^class2$', TemplateView.as_view(template_name='index.html')),
-    url(r'^class3$', TemplateView.as_view(template_name='index.html')),
-    url(r'^class4$', TemplateView.as_view(template_name='index.html')),
-    url(r'^class5$', TemplateView.as_view(template_name='index.html')),
-    url(r'^class6$', TemplateView.as_view(template_name='index.html')),
-    url(r'^class7$', TemplateView.as_view(template_name='index.html')),
-    url(r'^class8$', TemplateView.as_view(template_name='index.html')),
-    url(r'^class9$', TemplateView.as_view(template_name='index.html')),
+    url(r'^$', MgSV_views.warning_login_required, name='mg-for-school'),
+    url(r'^class1$', MgSV_views.warning_login_required, name='mg-for-school'),
+    url(r'^class2$', MgSV_views.warning_login_required, name='mg-for-school'),
+    url(r'^class3$', MgSV_views.warning_login_required, name='mg-for-school'),
+    url(r'^class4$', MgSV_views.warning_login_required, name='mg-for-school'),
+    url(r'^class5$', MgSV_views.warning_login_required, name='mg-for-school'),
+    url(r'^class6$', MgSV_views.warning_login_required, name='mg-for-school'),
+    url(r'^class7$', MgSV_views.warning_login_required, name='mg-for-school'),
+    url(r'^class8$', MgSV_views.warning_login_required, name='mg-for-school'),
+    url(r'^class9$', MgSV_views.warning_login_required, name='mg-for-school'),
 ]
