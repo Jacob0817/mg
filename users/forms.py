@@ -4,7 +4,7 @@ from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.utils.translation import ugettext_lazy as _
 
 from .conf import settings
-from .fields import HoneyPotField, PasswordField, UsersEmailField
+from .fields import HoneyPotField, PasswordField, UsersEmailField, UserNameField
 
 
 class UserCreationForm(forms.ModelForm):
@@ -13,13 +13,14 @@ class UserCreationForm(forms.ModelForm):
         'duplicate_email': _('A user with that email already exists.'),
         'password_mismatch': _('The two password fields didn\'t match.'),
     }
+    name = UserNameField(label=_('用户名'), max_length=10)
     email = UsersEmailField(label=_('电子邮件地址'), max_length=255)
     password1 = PasswordField(label=_('密码'))
     password2 = PasswordField(label=_('确认密码'))
 
     class Meta:
         model = get_user_model()
-        fields = ('email',)
+        fields = ('name', 'email',)
 
     def clean_email(self):
 
