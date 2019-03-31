@@ -157,3 +157,13 @@ section.home-info-last {
   }
 }
 /*------------------------------------------------*/
+la {
+  text-align: right;
+  font-weight: bolder;
+}
+lr {
+  text-align: left;
+}
+section.account-info {
+  padding:65px 0;
+}
