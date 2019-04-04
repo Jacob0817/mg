@@ -25,5 +25,6 @@ urlpatterns = [
     path('mg/', include('MgForSchoolV.urls')),
     path('', MgS_views.index, name='MgSindex'),
     path('account/', MgS_views.account_page, name='person_file'),
+    path('order/', MgS_views.OrderCreateForm, name='order_creation_page'),
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
