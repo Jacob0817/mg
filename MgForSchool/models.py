@@ -9,6 +9,6 @@ class OrderRecord(models.Model):
     date_start = models.DateField('开始日期', default=timezone.now)
     date_end = models.DateField('结束日期', default=timezone.now)
     SOM = models.PositiveSmallIntegerField('订单金额', default=0)
-    is_val = models.BooleanField('is_valid', default=False)
+    is_val = models.BooleanField('is_valid', default=True)
     class Meta:
         abstract=False
