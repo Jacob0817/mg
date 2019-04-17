@@ -1,20 +1,28 @@
 from django.shortcuts import render
+from django.views.generic.base import TemplateView
 from MgForSchool.models import OrderRecord
 
-def warning_login_required(request):
-    if request.user.is_authenticated:
+def NPlusT(func):#验证是否有活动的订单-TRUE
+    def wrapper(request,*args,**kwargs):
         try:
-            OrderRecord.objects.get(is_val='True')
-            return render(request, 'index.html')
+            orders = request.user.orders
+            val_order = orders.get(is_val=True)
         except OrderRecord.DoesNotExist:
             return render(
                 request,
-                'MgForSchoolTemp/warning_login_required.html',
-                {'warning_msg':'您目前没有有效的课程订购', 'relocate':'/'}
+                'MgForSchoolTemp/warning.html',
+                {'warning_msg':'您还未订购Node  plus会员', 'relocation':'订购页面', 'relocate':'/order/',}
             )
+        return  func(request,*args, **kwargs)
+    return wrapper
+
+@NPlusT
+def MgForSchool(request):
+    if request.user.is_authenticated:
+            return render(request, 'index.html')
     else:
         return render(
             request,
             'MgForSchoolTemp/warning_login_required.html',
-            {'warning_msg':'访问节点魔方教学课程请先登录', 'relocate':'/accounts/login/',}
+            {'warning_msg':'访问节点魔方教学课程请先登录', 'relocation':'登录页面', 'relocate':'/accounts/login/',}
         )
