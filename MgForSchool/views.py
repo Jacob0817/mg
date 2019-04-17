@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from .models import OrderRecord
 
 # Create your views here.
-def NPlus(func):#验证是否有活动的订单-FALSE
+def NPlusF(func):#验证是否有活动的订单-FALSE
     def wrapper(request,*args,**kwargs):
         try:
             orders = request.user.orders
@@ -27,8 +27,9 @@ def index(request):
 def account_page(request):
     return render(request, 'MgForSchoolTemp/account.html')
 
-@NPlus
+
 @login_required(login_url='/accounts/login/')
+@NPlusF
 def OrderCreateForm(request):
     if request.method == 'POST':
         order_form = OrderForm(request.POST)

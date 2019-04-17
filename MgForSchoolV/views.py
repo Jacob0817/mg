@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
+from django.contrib.auth.decorators import login_required
 from MgForSchool.models import OrderRecord
 
 def NPlusT(func):#验证是否有活动的订单-TRUE
@@ -16,6 +17,7 @@ def NPlusT(func):#验证是否有活动的订单-TRUE
         return  func(request,*args, **kwargs)
     return wrapper
 
+@login_required(login_url='/accounts/login/')
 @NPlusT
 def MgForSchool(request):
     if request.user.is_authenticated:
