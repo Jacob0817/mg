@@ -1,17 +1,24 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from MgForSchool.models import OrderRecord
-from mg.decorator import NPlusT
+from mg.decorator import NPlusT, NPlusWait, NPlusVal
+from django.views.decorators.cache import never_cache
+from django.views.decorators.csrf import csrf_protect
 
 
 @login_required(login_url='/accounts/login/')
+@NPlusVal#检查是否有过期订单
 @NPlusT
+@NPlusWait
+@csrf_protect
+@never_cache
 def MgForSchool(request):
-    if request.user.is_authenticated:
-            return render(request, 'index.html')
+    return render(request, 'index.html')
+    '''
     else:
         return render(
             request,
             'MgForSchoolTemp/warning_login_required.html',
             {'warning_msg':'访问节点魔方教学课程请先登录', 'relocation':'登录页面', 'relocate':'/accounts/login/',}
         )
+'''

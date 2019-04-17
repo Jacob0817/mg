@@ -5,12 +5,16 @@ from .forms import OrderForm
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from .models import OrderRecord
-from mg.decorator import NPlusF, NPlusWait
+from mg.decorator import NPlusF, NPlusWait, NPlusVal
+from django.views.decorators.cache import never_cache
+from django.views.decorators.csrf import csrf_protect
 
 # Create your views here.
 def index(request):
     return render(request, 'MgForSchoolTemp/home_page.html')
 
+@NPlusVal
+@never_cache
 def account_page(request):
     try:
         orders = request.user.orders
@@ -22,8 +26,11 @@ def account_page(request):
 
 
 @login_required(login_url='/accounts/login/')
+@NPlusVal#检查是否有过期订单
 @NPlusF#检查是否有激活的订单
 @NPlusWait#检查是否有待支付的订单
+@csrf_protect
+@never_cache
 def OrderCreateForm(request):
     if request.method == 'POST':
         order_form = OrderForm(request.POST)
