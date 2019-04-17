@@ -5,22 +5,9 @@ from .forms import OrderForm
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from .models import OrderRecord
+from mg.decorator import NPlusF
 
 # Create your views here.
-def NPlusF(func):#验证是否有活动的订单-FALSE
-    def wrapper(request,*args,**kwargs):
-        try:
-            orders = request.user.orders
-            val_order = orders.get(is_val=True)
-        except OrderRecord.DoesNotExist:
-            return  func(request,*args, **kwargs)
-        return render(
-                request,
-                'MgForSchoolTemp/warning.html',
-                {'warning_msg':'您已经有可用的订购', 'relocation':'首页', 'relocate':'/',}
-            )
-    return wrapper
-
 def index(request):
     return render(request, 'MgForSchoolTemp/home_page.html')
 

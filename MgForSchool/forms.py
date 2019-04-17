@@ -1,5 +1,5 @@
 from django import forms
-from .models import OrderRecord
+from MgForSchool.models import OrderRecord
 
 class OrderForm(forms.  ModelForm):
 
