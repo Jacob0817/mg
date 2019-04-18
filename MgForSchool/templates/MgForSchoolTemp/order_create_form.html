@@ -3,11 +3,12 @@
 {% load i18n staticfiles %}
 
 {% block content %}
+<h2>Node plus会员订购</h2>
 <form action="" method="post">
     {% csrf_token %}
     {{form}}
-    <button type="submit" class="btn btn-info" name="monthly">30天</button>
-    <button type="submit" class="btn btn-info" name="seasonly">90天</button>
-    <button type="submit" class="btn btn-info" name="yearly">360天</button>
+    <button type="submit" class="btn btn-info col-md-3" onclick="javascript:return confirm('您确认要订购30天Node plus会员吗？');" name="monthly" style='height: 3em;margin: 2em .5em 2em;font-size: 3em;'>30天</button> 
+    <button type="submit" class="btn btn-info col-md-3" onclick="javascript:return confirm('您确认要订购90天Node plus会员吗？');" name="seasonly" style='height: 3em;margin: 2em .5em 2em;font-size: 3em;'>90天</button>
+    <button type="submit" class="btn btn-info col-md-3" onclick="javascript:return confirm('您确认要订购360天Node plus会员吗？');" name="yearly" style='height: 3em;margin: 2em .5em 2em;font-size: 3em;'>360天</button>
 </form>
 {% endblock %}

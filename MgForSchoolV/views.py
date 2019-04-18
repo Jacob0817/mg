@@ -8,8 +8,8 @@ from django.views.decorators.csrf import csrf_protect
 
 @login_required(login_url='/accounts/login/')
 @NPlusVal#检查是否有过期订单
-@NPlusT
-@NPlusWait
+@NPlusT#检查是否为会员
+@NPlusWait#检查订单是否待审核
 @csrf_protect
 @never_cache
 def MgForSchool(request):
