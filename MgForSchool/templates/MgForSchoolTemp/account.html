@@ -25,4 +25,38 @@
         <lr class="col-md-8">{{day_end}}</lr>
     </div>
 </section>
+{% if request.user.is_superuser %}
+<section class="account-manage-order">
+    <div class="container">
+        <table border=2px>
+            <thead>
+                <tr>
+                    <th>用户名</th>
+                    <th>订购日期</th>
+                    <th>start</th>
+                    <th>end</th>
+                    <th>订单价格确认及激活</th>
+                </tr>
+            </thead>
+            {% for order in order_list %}
+            <tr>
+                <th>{{order.user}}</th>
+                <th>{{order.date_add}}</th>
+                <th>{{order.date_start}}</th>
+                <th>{{order.date_end}}</th>
+                <th>
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" value="{{order.user.id}}" name="user">
+                            <input type="hidden" value="{{order.date_last}}" name="last">
+                            <input type="number" name="value">
+                            <button type="submit" class="btn btn-info" onclick="javascript:return confirm('确认激活用户订购？');">激活</button>
+                        </form>
+                </th>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</section>
+{% endif %}
 {% endblock %}

@@ -8,6 +8,7 @@ class OrderRecord(models.Model):
     date_add = models.DateTimeField('订单时间', auto_now_add=True)
     date_start = models.DateTimeField('开始日期', default=timezone.now)
     date_end = models.DateTimeField('结束日期', default=timezone.now)
+    date_last = models.PositiveSmallIntegerField('订购时长', default=0)
     SOM = models.PositiveSmallIntegerField('订单金额', default=0)
     is_val = models.BooleanField('is_valid', default=True)
     class Meta:

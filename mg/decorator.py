@@ -42,7 +42,7 @@ def NPlusF(func):#验证是否有活动的订单-FALSE
             )
     return wrapper
 
-def NPlusWait(func):#验证是否有待审核的订单
+def NPlusWait(func):#验证是否有待审核的订单(放在 T/F判断之前)
     def wrapper(request,*args,**kwargs):
         try:
             orders = request.user.orders

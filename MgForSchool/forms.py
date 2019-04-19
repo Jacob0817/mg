@@ -5,4 +5,4 @@ class OrderForm(forms.  ModelForm):
 
     class Meta:
         model = OrderRecord
-        exclude = ['user', 'date_start', 'date_end', 'is_val', 'SOM']
+        exclude = ['user', 'date_start', 'date_end', 'date_last', 'is_val', 'SOM']
