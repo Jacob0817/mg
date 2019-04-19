@@ -39,6 +39,14 @@ def account_page(request):
         except OrderRecord.DoesNotExist:
             order_list = []
         return render(request, 'MgForSchoolTemp/account.html', {'day_end':day_end, 'order_list':order_list})
+    else:
+        try:
+            orders = request.user.orders
+            val_order = orders.get(is_val=True)
+            day_end = val_order.date_end
+        except OrderRecord.DoesNotExist:
+            return  render(request, 'MgForSchoolTemp/account.html', {'day_end':'未购买'})
+        return render(request, 'MgForSchoolTemp/account.html', {'day_end':day_end})
         
 
 @login_required(login_url='/accounts/login/')
