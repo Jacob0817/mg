@@ -373,7 +373,15 @@ export default {
       buffer[0].arrow = false
       buffer[1].show = false
       this.items = buffer
-      this.$router.push({path: './'})
+      
+      let isMain = this.ismain()
+      if(isMain){
+        let location = window.location.href
+        let re_rule = '/mg'
+        window.location.href = location.split(re_rule)[0]
+      }else{
+        this.$router.push({path: './'})
+      }
     },
     gotoclass : function(url){
       // add by kirahan
