@@ -463,7 +463,9 @@ export default {
     onClickClosed(){
       // ipcRenderer.send('quit', 'close')
       // this.$socket.emit('forcequit','quit')
-      
+        let location = window.location.href
+        let re_rule = '/mg'
+        window.location.href = location.split(re_rule)[0]
     },
     getLocation: function () {
         let that = this
