@@ -300,6 +300,17 @@ export default {
               this.clientData.time.loged = Number(new Date())
             }
         },
+
+        //允许自动登录
+        allowclientautologin:function(flag){
+            console.log('[ininin]')
+            if(flag && this.clientData.state == 'request'){
+                console.log('[info] allow auto login',flag)
+                this.clientData.state = 'login'
+                this.clientData.time.loged = Number(new Date())
+            }
+        },
+        
         forceclientquit : function(id){
           if(id == this.clientData.id){
             this.clientData.state = 'open'
@@ -452,7 +463,9 @@ export default {
     onClickClosed(){
       // ipcRenderer.send('quit', 'close')
       // this.$socket.emit('forcequit','quit')
-      
+        let location = window.location.href
+        let re_rule = '/mg'
+        window.location.href = location.split(re_rule)[0]
     },
     getLocation: function () {
         let that = this
