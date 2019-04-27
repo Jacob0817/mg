@@ -4,7 +4,7 @@ from MgForSchool.models import OrderRecord
 from mg.decorator import NPlusT, NPlusWait, NPlusVal
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
-
+from django.http import JsonResponse
 
 @login_required(login_url='/accounts/login/')
 @NPlusVal#检查是否有过期订单
@@ -22,3 +22,7 @@ def MgForSchool(request):
             {'warning_msg':'访问节点魔方教学课程请先登录', 'relocation':'登录页面', 'relocate':'/accounts/login/',}
         )
 '''
+
+def ajax_user_name(request):
+    a = request.user.name
+    return JsonResponse(a, safe=False)
