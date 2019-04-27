@@ -23,6 +23,7 @@ def MgForSchool(request):
         )
 '''
 
+@csrf_protect
 def ajax_user_name(request):
     a = {'name':request.user.name}
     return JsonResponse(a, safe=False)
