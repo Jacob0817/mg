@@ -24,5 +24,5 @@ def MgForSchool(request):
 '''
 
 def ajax_user_name(request):
-    a = request.user.name
+    a = {'name':request.user.name}
     return JsonResponse(a, safe=False)
