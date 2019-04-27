@@ -13,5 +13,5 @@ urlpatterns = [
     url(r'^class7$', MgSV_views.MgForSchool, name='mg-for-school'),
     url(r'^class8$', MgSV_views.MgForSchool, name='mg-for-school'),
     url(r'^class9$', MgSV_views.MgForSchool, name='mg-for-school'),
-    url(r'^ajax_user_name$', MgSV_views.MgForSchool, name='ajax-user-name'),
+    url(r'^ajax_user_name/$', MgSV_views.MgForSchool, name='ajax-user-name'),
 ]
