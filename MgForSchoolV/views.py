@@ -4,6 +4,7 @@ from MgForSchool.models import OrderRecord
 from mg.decorator import NPlusT, NPlusWait, NPlusVal
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 
 import urllib.request as urlreq
@@ -33,14 +34,14 @@ def ajax_user_name(request):
     return JsonResponse(user_name, safe=False)
 
 
-@csrf_protect
+@csrf_exempt
 @never_cache
 def ajax_user_location(request):
     if 'HTTP_X_FORWARDED_FOR' in request.META:
         _ip = request.META['HTTP_X_FORWARDED_FOR']
     else:
         _ip = request.META['REMOTE_ADDR']
-    apiurl = "http://ip.taobao.com/sercive/getIpInfo.php?ip=%s" % _ip
+    apiurl = "http://ip.taobao.com/sercive/getIpInfo.php?ip=" + _ip
     content = urlreq.urlopen(apiurl).read()
     data = json.loads(content)['data']
     code = json.loads(content)['code']
