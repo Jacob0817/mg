@@ -41,7 +41,7 @@ def ajax_user_location(request):
         _ip = request.META['HTTP_X_FORWARDED_FOR']
     else:
         _ip = request.META['REMOTE_ADDR']
-    apiurl = "http://ip.taobao.com/sercive/getIpInfo.php?ip=" + _ip
+    apiurl = "http://ip.taobao.com/service/getIpInfo.php?ip=" + _ip
     content = urlreq.urlopen(apiurl).read()
     data = json.loads(content)['data']
     code = json.loads(content)['code']
