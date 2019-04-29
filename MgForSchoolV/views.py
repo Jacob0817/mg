@@ -27,6 +27,7 @@ def MgForSchool(request):
         )
 '''
 
+#获取用户名API
 @csrf_protect
 @never_cache
 def ajax_user_name(request):
@@ -34,6 +35,7 @@ def ajax_user_name(request):
     return JsonResponse(user_name, safe=False)
 
 
+#获取用户登录地点API
 @csrf_protect
 @never_cache
 def ajax_user_location(request):
@@ -50,8 +52,8 @@ def ajax_user_location(request):
             location = {'country':data["country"], 'region':data["region"], 'city':data["city"]}
             return JsonResponse(location, safe=False)
         if code == 1:
-            fail = {'fail':'API fail'}
+            fail = {'fail':'API fail'}# api 查询失败，错误代码1
             return JsonResponse(fail, safe=False)
     except:
-        fail = {'fail':'wrong url'}
+        fail = {'fail':'wrong url'}# 向api传值错误或api不存在
         return JsonResponse(fail, safe=False)
