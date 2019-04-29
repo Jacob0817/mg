@@ -41,10 +41,17 @@ def ajax_user_location(request):
         _ip = request.META['HTTP_X_FORWARDED_FOR']
     else:
         _ip = request.META['REMOTE_ADDR']
-    apiurl = "http://ip.taobao.com/service/getIpInfo.php?ip=" + _ip
-    content = urlreq.urlopen(apiurl).read()
-    data = json.loads(content)['data']
-    code = json.loads(content)['code']
-    if code == 0:
-        location = {'country':data["country"], 'region':data["region"], 'city':data["city"]}
-        return JsonResponse(location, safe=False)
+    try:
+        apiurl = "http://ip.taobao.com/service/getIpInfo.php?ip=" + _ip
+        content = urlreq.urlopen(apiurl).read()
+        data = json.loads(content)['data']
+        code = json.loads(content)['code']
+        if code == 0:
+            location = {'country':data["country"], 'region':data["region"], 'city':data["city"]}
+            return JsonResponse(location, safe=False)
+        if code == 1:
+            fail = {'fail':'API fail'}
+            return JsonResponse(fail, safe=False)
+    except:
+        fail = {'fail':'wrong url'}
+        return JsonResponse(fail, safe=False)
