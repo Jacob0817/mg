@@ -34,7 +34,7 @@ def ajax_user_name(request):
     return JsonResponse(user_name, safe=False)
 
 
-@csrf_exempt
+@csrf_protect
 @never_cache
 def ajax_user_location(request):
     if 'HTTP_X_FORWARDED_FOR' in request.META:
