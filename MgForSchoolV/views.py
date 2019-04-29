@@ -37,7 +37,7 @@ def ajax_user_name(request):
 @never_cache
 def ajax_user_location(request):
     if 'HTTP_X_FORWARDED_FOR' in request.META:
-        _ip = request.META['HTTP_X_FORWARDED_FOR']:
+        _ip = request.META['HTTP_X_FORWARDED_FOR']
     else:
         _ip = request.META['REMOTE_ADDR']
     apiurl = "http://ip.taobao.com/sercive/getIpInfo.php?ip=%s" % _ip
