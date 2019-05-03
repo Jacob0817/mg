@@ -58,7 +58,7 @@
                 <div class="display-3" style="color:black;padding-top:20%">
                   三阶魔方复原课程
                   <br>
-                  <strong class="headline">武汉魔方协会</strong>
+                  <strong class="headline">{{username}}</strong>
                 </div>                
                 <v-btn @click="sendRequest()" class="request-btn" color="green lighten-1 white--text">{{btnText}}</v-btn>
                  <v-progress-circular
@@ -142,7 +142,9 @@ import Cube from 'Components/Cube'
 import GiikerCube from 'Lib/giiker'
 import {mapState} from 'vuex'
 import store from '../store'
+import axios from 'axios'
 const uuidv1 = require('uuid/v1')
+
 // import {ipcRenderer} from 'electron'
 
 
@@ -155,6 +157,7 @@ export default {
   computed:mapState(["isGiikerConnected","phase"]),
   data () {
     return {
+      username : '武汉魔方协会',
       clientData:{
         id : '',
         agent : '',
@@ -336,6 +339,14 @@ export default {
       this.clientData.userAgent = navigator.userAgent
       this.clientData.time.open = Number(new Date())
       this.clientData.state = 'open'
+
+      axios.get('/mg/api/ajax/user_name/').then(function(res){
+        console.log(res)
+        this.username = res
+      }).catch(function(err){
+        console.log('err',err)
+      })
+
       if(navigator.geolocation){
           //浏览器支持geolocation
           navigator.geolocation.getCurrentPosition(function (pos) {
