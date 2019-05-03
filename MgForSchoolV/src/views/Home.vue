@@ -342,7 +342,8 @@ export default {
 
       axios.get('/mg/api/ajax/user_name/').then(function(res){
         console.log(res)
-        this.username = res
+        console.log(res.data.name)
+        this.username = res.data.name
       }).catch(function(err){
         console.log('err',err)
       })
