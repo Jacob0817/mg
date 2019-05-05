@@ -6,7 +6,7 @@ class ResultField(models.IntegerField):
     def __init__(self, *args, **kwargs):
         super(ResultField, self).__init__(*args, **kwargs)
 
-    #读取数据库
+    # 读取数据库
     def from_db_value(self, value, expression, conn, context):
         if not value:
             return('NULL')
@@ -22,6 +22,8 @@ class ResultField(models.IntegerField):
                 arr = [reverse_value[i:i + 2] for i in range(0, len(reverse_value), 2)]
                 time = '.'.join(arr)
                 return time[::-1]
+
+    # 写入数据库
     def get_prep_value(self, value):
         if not value:
             value = -1
