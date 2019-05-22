@@ -168,7 +168,7 @@ export default {
           logout : '',
         },
         state : '',
-        location : '武汉',
+        location : '',
       },
       clientLoopTask: '',
       btnText : '登陆',
@@ -351,9 +351,9 @@ export default {
       //获取用户所在位置
       axios.get('/mg/api/ajax/user_location/').then(function(res){
         // console.log(res)
-        console.log(res.data)
-        // that.location = res.data.location
-        that.clientData.location = res.data.location
+        console.log('[debug]',res.data)
+        let location = res.data
+        that.clientData.location = location.region + location.city
       }).catch(function(err){
         console.log('err',err)
       })
@@ -373,6 +373,7 @@ export default {
 
       console.log(this.clientData)
       this.clientLoopTask = setInterval(() => {
+        console.log('[debug]',that.clientData.location)
         that.$socket.emit('pingping', that.clientData)
       }, 500);
   },
