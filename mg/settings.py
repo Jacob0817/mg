@@ -14,11 +14,27 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = (
-    # os.path.join(BASE_DIR, 'static'),# note this while in production env
+
+# 如果是不生产环境就设置static_root = os.path.join(BASE_DIR, 'static')
+# 否则用STATICFILES_DIRS
+try:
+    if (os.environ.get('mgenv') == 'production'):
+        STATIC_ROOT = os.path.join(BASE_DIR, 'static') # note this while in production env
+        STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "MgForSchoolV/dist/"),
 )
+        
+    else:
+        STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'), # note this while in dev env
+    os.path.join(BASE_DIR, "MgForSchoolV/dist/"),
+)
+except:
+    STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),# note this while in production env
+    os.path.join(BASE_DIR, "MgForSchoolV/dist/"),
+)
+
 
 
 # Quick-start development settings - unsuitable for production

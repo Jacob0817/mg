@@ -158,6 +158,7 @@ export default {
   data () {
     return {
       username : '武汉魔方协会',
+      location : '',
       clientData:{
         id : '',
         agent : '',
@@ -306,7 +307,6 @@ export default {
 
         //允许自动登录
         allowclientautologin:function(flag){
-            console.log('[ininin]')
             if(flag && this.clientData.state == 'request'){
                 console.log('[info] allow auto login',flag)
                 this.clientData.state = 'login'
@@ -340,26 +340,37 @@ export default {
       this.clientData.time.open = Number(new Date())
       this.clientData.state = 'open'
 
+      //获取用户名
       axios.get('/mg/api/ajax/user_name/').then(function(res){
-        console.log(res)
-        console.log(res.data.name)
+        // console.log(res)
+        // console.log(res.data.name)
         that.username = res.data.name
       }).catch(function(err){
         console.log('err',err)
       })
 
-      if(navigator.geolocation){
-          //浏览器支持geolocation
-          navigator.geolocation.getCurrentPosition(function (pos) {
-              console.log(pos.coords)
-              that.clientData.location = pos.coords
-          },function (err) {
-              console.log(err)
-          });
-      }else{
-          //浏览器不支持geolocation
-          console.log("浏览器不支持!");
-      }
+      //获取用户所在位置
+      axios.get('/mg/api/ajax/user_location/').then(function(res){
+        // console.log(res)
+        console.log(res.data.location)
+        // that.location = res.data.location
+        that.clientData.location = res.data.location
+      }).catch(function(err){
+        console.log('err',err)
+      })
+
+      // if(navigator.geolocation){
+      //     //浏览器支持geolocation
+      //     navigator.geolocation.getCurrentPosition(function (pos) {
+      //         console.log(pos.coords)
+      //         that.clientData.location = pos.coords
+      //     },function (err) {
+      //         console.log(err)
+      //     });
+      // }else{
+      //     //浏览器不支持geolocation
+      //     console.log("浏览器不支持!");
+      // }
 
       console.log(this.clientData)
       this.clientLoopTask = setInterval(() => {
