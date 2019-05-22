@@ -16,3 +16,15 @@
 `$ yarn run build`  
 `$ cd /path/to/mg`  
 `$ python manage.py runserver`  
+
+### to db
+`$ python manage.py migrate`  
+
+### to static
+`$ python manage.py collectstatic`
+
+###command for micro backend server
+- 关闭index.js 服务
+- /home/liwei/mg/server/node_modules/.bin/forever stop /home/liwei/mg/server/index.js
+- 开启index.js 服务
+- /home/liwei/mg/server/node_modules/.bin/forever start /home/liwei/mg/server/index.js

@@ -158,7 +158,6 @@ export default {
   data () {
     return {
       username : '武汉魔方协会',
-      location : '',
       clientData:{
         id : '',
         agent : '',
@@ -169,7 +168,7 @@ export default {
           logout : '',
         },
         state : '',
-        location : '',
+        location : '武汉',
       },
       clientLoopTask: '',
       btnText : '登陆',
@@ -352,7 +351,7 @@ export default {
       //获取用户所在位置
       axios.get('/mg/api/ajax/user_location/').then(function(res){
         // console.log(res)
-        console.log(res.data.location)
+        console.log(res.data)
         // that.location = res.data.location
         that.clientData.location = res.data.location
       }).catch(function(err){

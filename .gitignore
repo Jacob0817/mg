@@ -3,7 +3,7 @@ node_modules
 **/__pycache__
 *.pyc
 db.sqlite3
-
+mg/__pycache__
 # local env files
 .env.local
 .env.*.local
