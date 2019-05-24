@@ -31,7 +31,7 @@ def MgForSchool(request):
 @csrf_protect
 @never_cache
 def ajax_user_name(request):
-    user_name = {'name':request.user.name}
+    user_name = {'name':request.user.name, 'id':request.user.id}
     return JsonResponse(user_name, safe=False)
 
 
