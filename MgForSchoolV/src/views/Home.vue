@@ -58,7 +58,7 @@
                 <div class="display-3" style="color:black;padding-top:20%">
                   三阶魔方复原课程
                   <br>
-                  <strong class="headline">{{username}}</strong>
+                  <strong class="headline">{{clientData.user.username}}</strong>
                 </div>                
                 <v-btn @click="sendRequest()" class="request-btn" color="green lighten-1 white--text">{{btnText}}</v-btn>
                  <v-progress-circular
@@ -157,8 +157,12 @@ export default {
   computed:mapState(["isGiikerConnected","phase"]),
   data () {
     return {
-      username : '武汉魔方协会',
       clientData:{
+        user:{
+          username: '武汉魔方协会',
+          id: 0,
+          locationChangeFlag: false,
+        },
         id : '',
         agent : '',
         time : {
@@ -339,11 +343,10 @@ export default {
       this.clientData.time.open = Number(new Date())
       this.clientData.state = 'open'
 
-      //获取用户名
+      //获取用户名&id
       axios.get('/mg/api/ajax/user_name/').then(function(res){
-        // console.log(res)
-        // console.log(res.data.name)
-        that.username = res.data.name
+        that.clientData.user.username = res.data.name
+        that.clientData.user.id = res.data.id
       }).catch(function(err){
         console.log('err',err)
       })
