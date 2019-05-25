@@ -173,6 +173,7 @@ export default {
         },
         state : '',
         location : '',
+        regist : '',
       },
       clientLoopTask: '',
       btnText : '登陆',
@@ -351,11 +352,12 @@ export default {
         console.log('err',err)
       })
 
-      //获取用户所在位置
+      //获取用户所在位置&注册地
       axios.get('/mg/api/ajax/user_location/').then(function(res){
         // console.log(res)
         console.log('[debug]',res.data)
         let location = res.data
+        that.clientData.regist = location.regist
         that.clientData.location = location.region + location.city
       }).catch(function(err){
         console.log('err',err)
