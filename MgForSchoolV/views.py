@@ -49,7 +49,7 @@ def ajax_user_location(request):
         data = json.loads(content)['data']
         code = json.loads(content)['code']
         if code == 0:
-            location = {'country':data["country"], 'region':data["region"], 'city':data["city"]}
+            location = {'country':data["country"], 'region':data["region"], 'city':data["city"], 'regist':request.user.orders.get(is_val=True).location}
             return JsonResponse(location, safe=False)
         if code == 1:
             fail = {'fail':'API fail'}# api 查询失败，错误代码1
