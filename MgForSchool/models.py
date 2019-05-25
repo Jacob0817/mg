@@ -6,6 +6,7 @@ from django.utils import timezone
 class OrderRecord(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='orders', on_delete=models.SET_NULL, null=True)
     date_add = models.DateTimeField('订单时间', auto_now_add=True)
+    location = models.CharField('订单使用位置', max_length=25, default='XX')
     group_order = models.SmallIntegerField('企业订购', default=1)
     date_start = models.DateTimeField('开始日期', default=timezone.now)
     date_end = models.DateTimeField('结束日期', default=timezone.now)

@@ -7,13 +7,14 @@ class OrderRecordAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,               {'fields': ['user']}),
         (None,               {'fields': ['group_order']}),
+        (None,               {'fields': ['location']}),
         (None,               {'fields': ['date_start']}),
         (None,               {'fields': ['date_end']}),
         (None,               {'fields': ['date_last']}),
         (None,               {'fields': ['SOM']}),
         (None,               {'fields': ['is_val']}),
     ]
-    list_display = ('user', 'group_order', 'date_add', 'date_last', 'is_val') #add more columns.
+    list_display = ('user', 'group_order', 'location', 'date_add', 'date_last', 'is_val') #add more columns.
     list_filter = ['is_val'] #add filter function.
     search_fields = ['user'] #add search function.
 
