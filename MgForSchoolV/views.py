@@ -34,6 +34,15 @@ def ajax_user_name(request):
     user_name = {'name':request.user.name, 'id':request.user.id}
     return JsonResponse(user_name, safe=False)
 
+@csrf_protect
+@never_cache
+def ajax_max_login(request):
+    try:
+        MaxLogin = request.user.orders.get(is_val=True).group_order
+        max_login_count = {'MaxLogin':MaxLogin}
+    except:
+        max_login_count = {'MaxLogin':'1'}
+    return JsonResponse(max_login_count, safe=False)
 
 #获取用户登录地点API
 @csrf_protect
