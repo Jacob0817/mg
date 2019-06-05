@@ -27,13 +27,16 @@ def MgForSchool(request):
         )
 '''
 
-#获取用户名API
+#获取用户名及用户id--API
+@login_required(login_url='/accounts/login/')
 @csrf_protect
 @never_cache
 def ajax_user_name(request):
     user_name = {'name':request.user.name, 'id':request.user.id}
     return JsonResponse(user_name, safe=False)
 
+# 获取企业订购数/普通用户 信息--API
+@login_required(login_url='/accounts/login/')
 @csrf_protect
 @never_cache
 def ajax_max_login(request):
@@ -44,7 +47,8 @@ def ajax_max_login(request):
         max_login_count = {'MaxLogin':'1'}
     return JsonResponse(max_login_count, safe=False)
 
-#获取用户登录地点API
+#获取用户登录地点--API
+@login_required(login_url='/accounts/login/')
 @csrf_protect
 @never_cache
 def ajax_user_location(request):
@@ -57,8 +61,12 @@ def ajax_user_location(request):
         content = urlreq.urlopen(apiurl).read()
         data = json.loads(content)['data']
         code = json.loads(content)['code']
+        try:
+            regist_location = request.user.orders.get(is_val=True).location
+        except:
+            regist_location = 'XX'
         if code == 0:
-            location = {'country':data["country"], 'region':data["region"], 'city':data["city"], 'regist':request.user.orders.get(is_val=True).location}
+            location = {'country':data["country"], 'region':data["region"], 'city':data["city"], 'regist':regist_location}
             return JsonResponse(location, safe=False)
         if code == 1:
             fail = {'fail':'API fail'}# api 查询失败，错误代码1
