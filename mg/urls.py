@@ -16,15 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from MgForSchool import views as MgS_views
+from MgForSchool import views as Mg_views
 from django.conf import settings
 from django.views.generic.base import TemplateView
 from django.conf.urls.static import static
 urlpatterns = [
     path('accounts/', include('users.urls')),
-    path('mg/', include('MgForSchoolV.urls')),
-    path('', MgS_views.index, name='MgSindex'),
-    path('account/', MgS_views.account_page, name='person_file'),
-    path('order/', MgS_views.OrderCreateForm, name='order_creation_page'),
+    path('333/', include('m3.urls')),
+    path('', Mg_views.index, name='Mg_index'),
+    path('courses/', Mg_views.courses, name='Mg_courses'),
+    path('account/', Mg_views.account_page, name='person_file'),
+    path('order/', Mg_views.OrderCreateForm, name='order_creation_page'),
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

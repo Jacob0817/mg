@@ -16,16 +16,8 @@ import json
 @NPlusT#检查是否为会员
 @csrf_protect
 @never_cache
-def MgForSchool(request):
+def m3course(request):
     return render(request, 'index.html')
-    '''
-    else:
-        return render(
-            request,
-            'MgForSchoolTemp/warning_login_required.html',
-            {'warning_msg':'访问节点魔方教学课程请先登录', 'relocation':'登录页面', 'relocate':'/accounts/login/',}
-        )
-'''
 
 #获取用户名及用户id--API
 @login_required(login_url='/accounts/login/')

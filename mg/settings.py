@@ -20,18 +20,18 @@ try:
     if (os.environ.get('mgenv') == 'production'):
         STATIC_ROOT = os.path.join(BASE_DIR, 'static') # note this while in production env
         STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "MgForSchoolV/dist/"),
+    os.path.join(BASE_DIR, "m3/dist/"),
 )
         
     else:
         STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'), # note this while in dev env
-    os.path.join(BASE_DIR, "MgForSchoolV/dist/"),
+    os.path.join(BASE_DIR, "m3/dist/"),
 )
 except:
     STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),# note this while in production env
-    os.path.join(BASE_DIR, "MgForSchoolV/dist/"),
+    os.path.join(BASE_DIR, "m3/dist/"),
 )
 
 
@@ -78,7 +78,7 @@ ROOT_URLCONF = 'mg.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'MgForSchoolV/dist'),
+        'DIRS': [os.path.join(BASE_DIR, 'm3/dist'),
                        os.path.join(BASE_DIR, 'MgForSchool/templates')],
         'APP_DIRS': True,
         'OPTIONS': {

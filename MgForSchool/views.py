@@ -13,6 +13,9 @@ from django.views.decorators.csrf import csrf_protect
 def index(request):
     return render(request, 'MgForSchoolTemp/home_page.html')
 
+def courses(request):
+    return render(request, 'MgForSchoolTemp/courses.html')
+
 @login_required(login_url='/accounts/login/')
 @NPlusVal
 @csrf_protect
